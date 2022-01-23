@@ -1,5 +1,12 @@
-./target
+target/
+**/*.rs.bk
+.mal-history
 
 # IDE
+*.vim
+.nvimlog
+*.geany
 .idea
+*.sublime-project
+*.sublime-workspace
 
