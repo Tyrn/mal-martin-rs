@@ -61,9 +61,9 @@ fn quasiquote(ast: &MalVal) -> MalVal {
                 }
             }
             return qq_iter(&v);
-        },
+        }
         Vector(v, _) => return list![Sym("vec".to_string()), qq_iter(&v)],
-        Hash(_, _) | Sym(_)=> return list![Sym("quote".to_string()), ast.clone()],
+        Hash(_, _) | Sym(_) => return list![Sym("quote".to_string()), ast.clone()],
         _ => ast.clone(),
     }
 }
