@@ -1,11 +1,13 @@
 extern crate rustyline;
 
+use rustyline::config::{Config, EditMode};
 use rustyline::error::ReadlineError;
 use rustyline::Editor;
 
 fn main() {
+    let config = Config::builder().edit_mode(EditMode::Vi).build();
     // `()` can be used when no completer is required
-    let mut rl = Editor::<()>::new();
+    let mut rl = Editor::<()>::with_config(config);
     if rl.load_history(".mal-history").is_err() {
         eprintln!("No previous history.");
     }

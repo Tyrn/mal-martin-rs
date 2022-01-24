@@ -12,6 +12,7 @@ extern crate itertools;
 extern crate regex;
 
 extern crate rustyline;
+use rustyline::config::{Config, EditMode};
 use rustyline::error::ReadlineError;
 use rustyline::Editor;
 
@@ -329,8 +330,9 @@ fn main() {
     let mut args = std::env::args();
     let arg1 = args.nth(1);
 
+    let config = Config::builder().edit_mode(EditMode::Vi).build();
     // `()` can be used when no completer is required
-    let mut rl = Editor::<()>::new();
+    let mut rl = Editor::<()>::with_config(config);
     if rl.load_history(".mal-history").is_err() {
         eprintln!("No previous history.");
     }
