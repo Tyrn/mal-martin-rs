@@ -97,7 +97,7 @@ fn macroexpand(mut ast: MalVal, env: &Env) -> (bool, MalRet) {
         //println!("macroexpand 2: {:?}", ast);
         was_expanded = true;
     }
-    ((was_expanded, Ok(ast)))
+    (was_expanded, Ok(ast))
 }
 
 fn eval_ast(ast: &MalVal, env: &Env) -> MalRet {
